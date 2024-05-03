@@ -1,0 +1,9 @@
+.form-info {
+  position: relative;
+  width: 100%;
+  left: -100%;
+  background-color: blue;
+}
+.form-info.active {
+  left: 0;
+}
