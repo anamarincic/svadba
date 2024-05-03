@@ -80,6 +80,7 @@ export function Info(props) {
 
             <div className="map">
               <iframe
+                title="map"
                 src="https://www.google.com/maps/d/u/0/embed?mid=1R5IogP9SBb8ZUZlXJ0D3-fNipFwy724&ehbc=2E312F&noprof=1"
                 width="70%"
                 height="400"></iframe>
