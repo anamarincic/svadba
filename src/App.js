@@ -44,9 +44,7 @@ function App() {
           <h2 id="title-3">04.08.2024.</h2>
         </div>
       </div>
-      <div>
-        <Info id="welcome" />
-      </div>
+      <Info id="welcome" />
     </div>
   );
 }
