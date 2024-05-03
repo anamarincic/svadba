@@ -163,7 +163,7 @@ export function Info(props) {
                     onChange={handleChangeMenu}
                     checked={selectedOptionmenu === true}
                   />
-                  <label for="radio-4" className="radio-label">
+                  <label for="radio-4" className="radio-label fixtwo">
                     {" "}
                     Da{" "}
                   </label>
@@ -177,7 +177,7 @@ export function Info(props) {
                     onChange={handleChangeMenu}
                     checked={selectedOptionmenu === false}
                   />
-                  <label for="radio-3" className="radio-label">
+                  <label for="radio-3" className="radio-label fixtwo">
                     {" "}
                     Ne{" "}
                   </label>
