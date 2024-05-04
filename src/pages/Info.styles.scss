@@ -31,6 +31,10 @@
   margin: 40px 0;
 }
 
+.maps {
+  filter: grayscale(100%) invert(2%);
+}
+
 .slider {
     overflow: hidden;
     width: 100vw;
