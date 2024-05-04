@@ -82,9 +82,7 @@ export function Info(props) {
               <iframe
                 className="maps"
                 title="map"
-                src="https://www.google.com/maps/d/u/0/embed?mid=1R5IogP9SBb8ZUZlXJ0D3-fNipFwy724&ehbc=2E312F&noprof=1"
-                width="70%"
-                height="400"></iframe>
+                src="https://www.google.com/maps/d/u/0/embed?mid=1R5IogP9SBb8ZUZlXJ0D3-fNipFwy724&ehbc=2E312F&noprof=1"></iframe>
             </div>
 
             <h2>NAŠA PRIČA</h2>

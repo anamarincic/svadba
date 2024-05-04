@@ -33,6 +33,8 @@
 
 .maps {
   filter: grayscale(100%) invert(2%);
+  width: 76%;
+  height: 400px;
 }
 
 .slider {
@@ -279,6 +281,10 @@ input[type="text"] {
       width: 100%;
       margin-top: 0px;
       margin-bottom: 0px;
+  }
+
+  .maps {
+    width: 100%;
   }
 
   .slider {
