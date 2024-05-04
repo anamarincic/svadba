@@ -154,7 +154,7 @@ export function Info(props) {
               </div>
               <br></br>
               <div>
-                <h4>Poseban menu (vegan/vegeterijanaca) </h4>
+                <h4>Vegeterijanski menu </h4>
                 <div className="radio">
                   <input
                     type="radio"
