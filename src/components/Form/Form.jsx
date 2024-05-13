@@ -41,7 +41,7 @@ export function Form() {
 
       try {
         const response = await fetch(
-          "https://anaifilip.link:8443/items/create",
+          "https://api.anaifilip.link/items/create",
           {
             method: "POST",
             body: JSON.stringify(data),
