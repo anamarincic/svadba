@@ -6,11 +6,11 @@ export function Form() {
   const [error, setError] = useState(null);
   const [state, setState] = useState({
     name: "",
-    ostali: "",
+    others: "",
     info: "",
   });
   const [selectedOptionmenu, setSelectedoptionmenu] = useState(false);
-  const { name, ostali, info } = state;
+  const { name, others, info } = state;
 
   const handleChange = (e) => {
     console.log(e);
@@ -28,37 +28,38 @@ export function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !ostali) {
+    if (!name) {
       setError("Molim vas popunite prazna mjesta");
       alert(error);
     } else {
       const data = {
         name: state.name,
-        others: state.ostali,
+        others: state.others,
         menu: selectedOptionmenu,
         info: state.info,
       };
 
       try {
-        const response = await fetch("http://127.0.0.1:8080/items/create", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://anaifilip.link:8443/items/create",
+          {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const result = await response.json();
-        //return result;
-        console.log(result);
         console.log(response);
         alert("Dolazak potvrđen");
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (response) {
+        console.error("Error fetching data:", error.response);
         throw error;
       }
 
       alert("Potvrđen dolazak");
-      setState({ [name]: "", [ostali]: "", [info]: "" });
+      setState({ [name]: "", [others]: "", [info]: "" });
       setSelectedoptionmenu(false);
     }
   };
@@ -81,8 +82,8 @@ export function Form() {
       <input
         type="text"
         id="ostali"
-        name="ostali"
-        value={state.ostali || ""}
+        name="others"
+        value={state.others || ""}
         onChange={handleChange}
         placeholder="npr. Milka Perić, Ivica Perić"
       />
