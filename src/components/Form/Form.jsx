@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "../Button/Button";
+import { Dropdown } from "../Dropdown";
 import "./Form.styles.scss";
 
 export function Form() {
@@ -9,6 +10,7 @@ export function Form() {
     others: "",
     info: "",
   });
+  const [selected, setSelcted] = useState("0");
   const [selectedOptionmenu, setSelectedoptionmenu] = useState(false);
   const { name, others, info } = state;
 
@@ -26,40 +28,58 @@ export function Form() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
       setError("Molim vas popunite prazna mjesta");
       alert(error);
     } else {
-      const data = {
-        name: state.name,
-        others: state.others,
-        menu: selectedOptionmenu,
-        info: state.info,
-      };
+      async function sendData(data) {
+        try {
+          const response = await fetch(
+            "https://api.anaifilip.link/items/create",
+            {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const result = await response.json();
+          console.log(response);
+          return result;
+        } catch (error) {
+          console.error("Error fetching data:", error.response);
+          throw error;
+        }
+      }
 
-      try {
-        const response = await fetch(
-          "https://api.anaifilip.link/items/create",
-          {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const result = await response.json();
-        console.log(response);
-        alert("Dolazak potvrđen");
-      } catch (response) {
-        console.error("Error fetching data:", error.response);
-        throw error;
+      if (selectedOptionmenu && selected === "0") {
+        const data = {
+          name: state.name,
+          others: state.others,
+          menu: selectedOptionmenu,
+          num_of_menus: "1",
+          info: state.info,
+        };
+        console.log(data);
+        sendData(data);
+      } else {
+        const data = {
+          name: state.name,
+          others: state.others,
+          menu: selectedOptionmenu,
+          num_of_menus: selected,
+          info: state.info,
+        };
+        console.log(data);
+        sendData(data);
       }
 
       alert("Potvrđen dolazak");
       setState({ [name]: "", [others]: "", [info]: "" });
+      setSelcted("0");
       setSelectedoptionmenu(false);
     }
   };
@@ -104,7 +124,6 @@ export function Form() {
             Da
           </label>
         </div>
-
         <div className="radio">
           <input
             type="radio"
@@ -120,6 +139,9 @@ export function Form() {
         </div>
       </div>
       <br></br>
+
+      <h4>Broj vegeterijanskih menu?</h4>
+      <Dropdown selected={selected} setSelected={setSelcted} />
 
       <textarea
         form="gosti"
