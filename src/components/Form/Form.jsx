@@ -97,7 +97,7 @@ export function Form() {
       />
       <br></br>
 
-      <label for="ostali">Tko još dolazi s vama?</label>
+      <label for="ostali">Tko još dolazi s vama? (puno ime i prezime)</label>
       <br></br>
       <input
         type="text"
@@ -110,7 +110,7 @@ export function Form() {
       <br></br>
 
       <div>
-        <h4>Vegeterijanski menu </h4>
+        <h4>Vegetarijanski menu? </h4>
         <div className="radio">
           <input
             type="radio"
@@ -140,7 +140,7 @@ export function Form() {
       </div>
       <br></br>
 
-      <h4>Broj vegeterijanskih menu?</h4>
+      <h4>Količina vegetarijanskih menu-a?</h4>
       <Dropdown selected={selected} setSelected={setSelcted} />
 
       <textarea
