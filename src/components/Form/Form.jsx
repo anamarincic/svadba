@@ -85,7 +85,9 @@ export function Form() {
   };
   return (
     <form onSubmit={handleSubmit} id="gosti">
-      <label for="name">Ime i prezime: </label>
+      <label for="name" className="form_name">
+        Ime i prezime:{" "}
+      </label>
       <br></br>
       <input
         type="text"
@@ -93,11 +95,14 @@ export function Form() {
         name="name"
         value={state.name || ""}
         onChange={handleChange}
-        placeholder="npr. Pero Perić"
+        placeholder="npr. Ivan Horvat"
       />
       <br></br>
 
-      <label for="ostali">Tko još dolazi s vama? (puno ime i prezime)</label>
+      <label for="ostali" className="form_others">
+        Tko još dolazi s vama? <br></br>
+        <span className="form_others-nobold">(puno ime i prezime)</span>
+      </label>
       <br></br>
       <input
         type="text"
@@ -105,7 +110,7 @@ export function Form() {
         name="others"
         value={state.others || ""}
         onChange={handleChange}
-        placeholder="npr. Milka Perić, Ivica Perić"
+        placeholder="npr. Marija Horvat"
       />
       <br></br>
 
